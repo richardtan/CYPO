@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- App theme -->
+    <style name="Theme.CypoTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/cypo_primary</item>
+        <item name="colorPrimaryDark">@color/cypo_primary_dark</item>
+        <item name="colorAccent">@color/cypo_accent</item>
+        <item name="android:windowBackground">@color/cypo_window_background</item>
+    </style>
+
+    <!-- Used for the title text on the card-->
+    <style name="cypo_base_simple_title">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/cypo_base_simple_title_text_size</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_native_simple_title_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/card_main_native_simple_title_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/card_header_native_simple_title_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/card_header_native_simple_title_margin_bottom</item>
+    </style>
+
+    <!-- Used for the secondary text on the card-->
+    <style name="cypo_base_simple_title_2">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">@dimen/cypo_base_simple_title_2_text_size</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_native_simple_title_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/card_main_native_simple_title_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/card_header_native_simple_title_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/card_header_native_simple_title_margin_bottom</item>
+    </style>
+
+</resources>

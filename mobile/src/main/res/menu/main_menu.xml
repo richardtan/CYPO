@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.tckr.dukcud.MainActivity">
+
+    <item android:id="@+id/main_menu_about"
+        android:title="@string/about"
+        android:orderInCategory="1"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/main_menu_manage_wear"
+        android:title="@string/manage_wear_devices"
+        android:orderInCategory="2"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/main_menu_debug"
+        android:title="@string/debug"
+        android:orderInCategory="3"
+        app:showAsAction="never" />
+</menu>

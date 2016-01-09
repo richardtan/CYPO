@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">C.Y.P.O</string>
+    <string name="cypo_desc">C.Y.P.O (Check your phone often)</string>
+    <string name="all_time">All Time</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="settings">Settings</string>
+    <string name="wear_settings_desc">Choose position of where you want to see the Android Wear card for C.Y.P.O.</string>
+    <string name="debug">Debug</string>
+    <string name="debug_mode">Debug Mode?</string>
+    <string name="about">About</string>
+    <string name="screenlog_intent_on">On</string>
+    <string name="screenlog_intent_off">Off</string>
+    <string name="screenlog_intent_shutdown">Shutdown</string>
+    <string name="screenlog_intent_user_present">Device Unlocked</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_wear_device">New Wear Device</string>
+    <string name="new_wear_device_msg">We have noticed that a new wear device has been connected to the app. Please click the card to manage this new device.</string>
+    <string name="all_time_card_message"><![CDATA[
+        <big><strong>%1$s</strong></big><br />
+        Number of times you have turned your device on.<br /><br />
+        <big><strong>%2$s</strong></big><br />
+        Number of times you have unlocked your device.<br /><br />
+        <big><strong>%3$s</strong></big><br />
+        Duration your device has been on for.
+    ]]></string>
+    <string name="all_time_card_message_wear"><![CDATA[
+        <br /><br />
+        <big><strong>%1$s</strong></big><br />
+        Number of times your watch has been turned on.<br /><br />
+        <big><strong>%2$s</strong></big><br />
+        Duration your watch has been on for.
+    ]]></string>
+    <string name="all_time_insight_card_message"><![CDATA[
+        <strong>%1$s</strong> you turned your device on <strong>%2$d times</strong>, which is the most since installing the app.
+        <br /><br />
+        The longest you had used the device for was on <strong>%3$s</strong> where you managed to use it for <strong>%4$s</strong>.
+    ]]></string>
+    <string name="all_time_card_info">\nShows information from the time the application was installed.</string>
+    <string name="month_insight_card_message"><![CDATA[
+        On <strong>%1$s</strong>, you turned your device on <strong>%2$d times</strong>, which is the most for the month!
+        <br /><br >
+        The longest you have used your device for the month was on <strong>%3$s</strong> where you used it for <strong>%4$s</strong>.
+    ]]></string>
+    <string name="today_card_message"><![CDATA[
+        So far you have turned on your device <strong>%1$d times</strong>, unlocked it <strong>%2$d times</strong> and used it for <strong>%3$s</strong>.
+    ]]></string>
+    <string name="today_card_message_wear"><![CDATA[
+        <br /><br />
+        Your watch has been turned on <strong>%1$d times</strong> and used for <strong>%2$s</strong>.
+    ]]></string>
+    <string name="week_insight_card_message"><![CDATA[
+        This week on <strong>%1$s</strong> you turned your device on the most, having turned it on <strong>%2$d times</strong>.
+        <br /><br />
+        On <strong>%3$s</strong>, you used the phone for <strong>%4$s</strong>, which is the most this week!
+    ]]></string>
+    <string name="yesterday_card_message"><![CDATA[
+        Yesterday you turned your device on <strong>%1$d times</strong>, unlocked it <strong>%2$d times</strong> and used it for <strong>%3$s</strong>.
+    ]]></string>
+    <string name="yesterday_card_message_wear"><![CDATA[
+        <br /><br />
+        Your watch was turned on <strong>%1$d times</strong> and used for <strong>%2$s</strong>.
+    ]]></string>
+    <string name="sot_message"><![CDATA[
+        On <strong>%1$s</strong> you managed to get <strong>%2$s </strong> of on screen time. That is the most you got from your battery on a single charge!
+    ]]></string>
+    <string name="notification_all_time_record">It\'s an all time record!!!</string>
+    <string name="notification_all_time_record_text">%1$s times you turned your device on yesterday! That\'s the most since the installation of C.Y.P.O :)</string>
+    <string name="normal_notification_title">%1$s times</string>
+    <string name="normal_notification_text">That\'s how many times you turned your device on yesterday!</string>
+    <string name="sad_notification_title">I feel loney :(</string>
+    <string name="sad_notification_text">The device was not turned on yesterday, please use me :(</string>
+    <string name="all_time_insight">All Time Insights</string>
+    <string name="sot_insight">Most Screen On Time </string>
+    <string name="sot_info">\nShows the maximum screen on time on a single charge.</string>
+    <string name="today_insight">Today\'s Insights</string>
+    <string name="yesterday_insight">Yesterday\'s Insights</string>
+    <string name="this_weeks_insights">This Weeks Insights</string>
+    <string name="insights_caps">Insights</string>
+    <string name="wear_last_sync">\nWatch data last synced %1$s</string>
+    <string name="over_1_hour_ago">Over 1 hour ago</string>
+    <string name="over_x_hours_ago">Over %1$d hours ago</string>
+    <string name="one_minute_ago">1 minute ago</string>
+    <string name="x_minute_ago">%1$d minutes ago</string>
+    <string name="and">and</string>
+    <string name="day">day</string>
+    <string name="days">days</string>
+    <string name="hour">hour</string>
+    <string name="hours">hours</string>
+    <string name="minute">minute</string>
+    <string name="minutes">minutes</string>
+    <string name="second">second</string>
+    <string name="seconds">seconds</string>
+    <string name="manage_wear_devices">Manage Wear Devices</string>
+    <string name="manage_wear_devices_msg">C.Y.P.O can only support one Android Wear device at a time. If you have more than one Android Wear device, please select the one you would like to use with this application.</string>
+    <string name="manage_wear_devices_footer">Note: This does not affect the application running on Android Wear. This is a limitation currently with the Phone/Tablet applications.</string>
+    <string name="about_msg"><![CDATA[
+        Version: 1.0<br /><br />
+        Developer: Richard Tan<br /><br />
+        Website: <a href="http://justexperiment.com/cypo.php">Just Experiment - CYPO</a><br /><br />
+        Donate: <a href="https://www.paypal.me/RichardTan/">PayPal.me/RichardTan</a><br /><br />
+        GitHub: <a href="https://github.com/richardtan/CYPO">GitHub</a><br />
+    ]]></string>
+    <string name="action_settings">Settings</string>
+    <string name="top">Top</string>
+    <string name="bottom">Bottom</string>
+    <string name="let_android_decide">Let Android decide</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_msg"><![CDATA[
+        C.Y.P.O (Check your phone often) is an app that will keep track of the number of times you
+        turn on your phone, tablet or watch. Just leave it running in the background and you will
+        get daily notification of how often you turn your devices on.
+        <br /><br />
+        If you have an Android Wear device, please make sure you open the app on the watch so that
+        it will be able to run in the background.
+        <br /><br />
+        Please click on the card to dismiss this message.
+     ]]></string>
+
+
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tckr.dukcud.wear.MainActivity$OpenOnPhoneFragment">
+
+
+    <TextView android:id="@+id/open_on_phone_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/open_on_phone"
+        android:fontFamily="sans-serif-condensed-light"
+        android:layout_below="@+id/open_on_phone_img"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginTop="4dp" />
+
+        <ImageView
+            android:id="@+id/open_on_phone_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/button_selector"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/open_on_phone"
+            android:clickable="true" />
+
+        <ImageView
+            android:id="@+id/open_on_phone_icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/common_full_open_on_phone"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/open_on_phone" />
+
+</RelativeLayout>

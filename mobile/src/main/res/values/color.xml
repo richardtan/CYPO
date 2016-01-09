@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cypo_black">#000000</color>
+    <color name="cypo_primary_light">#7986CB</color>
+    <color name="cypo_primary">#3F51B5</color>
+    <color name="cypo_primary_dark">#303F9F</color>
+    <color name="cypo_accent">#FF4081</color>
+    <color name="cypo_white">#FFFFFF</color>
+    <color name="cypo_window_background">#F2F2F2</color>
+    <!--<color name="card_text_color_header">@color/cypo_accent</color>-->
+</resources>

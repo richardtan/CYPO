@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+// Keeping the properties file private for my keystore away from git commits
+Properties props = new Properties()
+props.load(new FileInputStream(project.rootProject.file('keystore.properties')))
+
+android {
+    signingConfigs {
+        keystorekey {
+            keyAlias props['keyAlias']
+            keyPassword props['keyPassword']
+            storeFile file(props['storeFile'])
+            storePassword props['storePassword']
+        }
+    }
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+    defaultConfig {
+        applicationId "com.tckr.dukcud"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.keystorekey
+        }
+
+        // To compile locally and run it on your system in debug mode, remove the below as this is my key
+        debug {
+            signingConfig signingConfigs.keystorekey
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    wearApp project(':wear')
+    compile 'com.google.android.gms:play-services-wearable:8.1.0'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.1'
+    compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.0.1'
+}

@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:dukcud="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+    <item android:id="@+id/main_about" android:title="@string/about"
+        android:orderInCategory="100" dukcud:showAsAction="never" />
+    <item android:id="@+id/main_settings" android:title="@string/settings"
+        android:orderInCategory="100" dukcud:showAsAction="never" />
+</menu>

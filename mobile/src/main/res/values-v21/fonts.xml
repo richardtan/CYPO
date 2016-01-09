@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="card_font_fontFamily_header">sans-serif</string>
+    <string name="card_native_font_fontFamily_header">sans-serif</string>
+
+    <string name="card_font_fontFamily_main_content">sans-serif</string>
+    <string name="card_native_font_fontFamily_main_content">sans-serif</string>
+
+</resources>
