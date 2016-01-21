@@ -20,6 +20,10 @@ public class ScreenService extends Service {
 
     private static final String TAG = "ScreenService";
 
+    // Due to bug in some samsung device, some of the action is called twice. So this static
+    // variable is used to stop this. We will update this at the end of the call
+    private static String lastScreenState = "";
+
     /**
      * We don't need this, Return null
      * @param intent
@@ -116,7 +120,7 @@ public class ScreenService extends Service {
             sharedPreferencesDAO.incrementScreenOff();
             sharedPreferencesDAO.putDataBoolean(DataSharedPreferencesDAO.KEY_SUCCESS_SHUTDOWN, true);
 
-        } else if(screenState.equals("ACTION_USER_PRESENT")) {
+        } else if(screenState.equals("ACTION_USER_PRESENT") && !screenState.equals(lastScreenState)) {
 
             // Increment the screen shutdown counters
             int timezoneChange = dao.insertInToTZDReturnCount();
@@ -182,6 +186,9 @@ public class ScreenService extends Service {
 
         // Close the database connection
         dao.close();
+
+        // Set the new screenState
+        lastScreenState = screenState;
 
         // Will try to recreate if killed
         return START_STICKY;
