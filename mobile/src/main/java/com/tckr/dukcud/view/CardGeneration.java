@@ -556,7 +556,9 @@ public class CardGeneration {
                 dsp.putDataBoolean(DataSharedPreferencesDAO.KEY_WELCOME_COMPLETE, true);
 
                 // Refresh the card again by calling the same activity.. kinda a hack :)
-                context.startActivity(new Intent(context, MainActivity.class));
+                Intent intent = new Intent(context, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Bring this activity to the front
+                context.startActivity(intent);
             }
         });
 

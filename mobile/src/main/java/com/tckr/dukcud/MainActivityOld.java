@@ -38,8 +38,8 @@ public class MainActivityOld extends AppCompatActivity {
         }
 
         // Allows me to show a card to open up the android wear new device card
-        DataSharedPreferencesDAO sharedPreferencesDAO = new DataSharedPreferencesDAO(this);
-        sharedPreferencesDAO.putDataBoolean(DataSharedPreferencesDAO.KEY_NEW_WEAR_DEVICE, true);
+        //DataSharedPreferencesDAO sharedPreferencesDAO = new DataSharedPreferencesDAO(this);
+        //sharedPreferencesDAO.putDataBoolean(DataSharedPreferencesDAO.KEY_NEW_WEAR_DEVICE, true);
 
         /** BELOW IS FOR TESTING **
         DatabaseDAO db = new DatabaseDAO(this);
@@ -109,7 +109,7 @@ public class MainActivityOld extends AppCompatActivity {
             dao.open();
             ScreenLogTable[] slt = dao.getScreenLog(50);
 
-            String returnString = "\nDebug Mode - This is something I used for debugging. Note, this will produce a Android Wear card on the main screen.\n";
+            String returnString = "\nDebug Mode\n";
 
             returnString += "\nTotal number of screen on is: " + dao.getCounterCountOn(DatabaseDAO.COUNTER_DATE_VALUE_DEFAULT);
 
