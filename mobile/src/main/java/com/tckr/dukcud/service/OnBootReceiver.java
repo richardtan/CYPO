@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.tckr.dukcud.data.DataSharedPreferencesDAO;
 import com.tckr.dukcud.data.DateTimeHandler;
@@ -13,6 +14,8 @@ import com.tckr.dukcud.data.DateTimeHandler;
  * Used to start the application if the device has been rebooted or if the application was updated.
  */
 public class OnBootReceiver extends BroadcastReceiver {
+
+    private static final String TAG = "OnBootReceiver";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -48,9 +51,16 @@ public class OnBootReceiver extends BroadcastReceiver {
         // Start notification receiver.
         Intent notificationIntent = new Intent(context, NotificationReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, notificationIntent,0);
-
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC, DateTimeHandler.getNotificationDate().getTimeInMillis(), pendingIntent);
+
+        // Setup Keep Alive Service
+        Intent keepAliveIntent = new Intent(context, KeepAliveReceiver.class);
+        PendingIntent pKeepAliveIntent = PendingIntent.getBroadcast(context, 0, keepAliveIntent,0);
+        AlarmManager aKeepAliveManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        aKeepAliveManager.set(AlarmManager.RTC, DateTimeHandler.todayTimestamp() + (1000 * 60 * 10), pKeepAliveIntent);
+
+        Log.v(TAG, "Finish OnBootReceiver");
 
     }
 }

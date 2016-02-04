@@ -24,6 +24,8 @@ public class ScreenService extends Service {
     // variable is used to stop this. We will update this at the end of the call
     private static String lastScreenState = "";
 
+    private BroadcastReceiver mReceiver;
+
     /**
      * We don't need this, Return null
      * @param intent
@@ -49,7 +51,7 @@ public class ScreenService extends Service {
         filter.addAction(Intent.ACTION_POWER_CONNECTED);
         filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
 
-        BroadcastReceiver mReceiver = new ScreenReceiver();
+        mReceiver = new ScreenReceiver();
         registerReceiver(mReceiver, filter);
 
         // Check if the battery is charging
@@ -57,6 +59,13 @@ public class ScreenService extends Service {
 
         Log.v("TAG", "onCreate() method has finished executing");
 
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.v(TAG, "Destroy Service");
+        unregisterReceiver(mReceiver);
+        super.onDestroy();
     }
 
     /**

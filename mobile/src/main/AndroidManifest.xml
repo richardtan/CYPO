@@ -58,9 +58,13 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".service.KeepAliveReceiver" />
+
         <service android:name=".service.ScreenService" />
 
         <service android:name=".service.NotificationService" />
+
+        <service android:name=".service.KeepAliveService" />
 
         <service android:name=".service.WearService" >
             <intent-filter>
