@@ -109,6 +109,12 @@ public class NotificationService extends Service {
     public void onDestroy() {
         Log.v(TAG, "Destroy Service");
         super.onDestroy();
+
+        // Setup Keep Alive Service
+        Intent keepAliveIntent = new Intent(this, KeepAliveReceiver.class);
+        PendingIntent pKeepAliveIntent = PendingIntent.getBroadcast(this, 0, keepAliveIntent,0);
+        AlarmManager aKeepAliveManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        aKeepAliveManager.set(AlarmManager.RTC, DateTimeHandler.todayTimestamp() + (1000*2), pKeepAliveIntent);
     }
 
     /**
