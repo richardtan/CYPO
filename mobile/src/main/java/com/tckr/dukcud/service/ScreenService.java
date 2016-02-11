@@ -1,7 +1,10 @@
 package com.tckr.dukcud.service;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
@@ -66,6 +69,12 @@ public class ScreenService extends Service {
         Log.v(TAG, "Destroy Service");
         unregisterReceiver(mReceiver);
         super.onDestroy();
+
+        // Setup Keep Alive Service
+        Intent keepAliveIntent = new Intent(this, KeepAliveReceiver.class);
+        PendingIntent pKeepAliveIntent = PendingIntent.getBroadcast(this, 0, keepAliveIntent,0);
+        AlarmManager aKeepAliveManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        aKeepAliveManager.set(AlarmManager.RTC, DateTimeHandler.todayTimestamp() + (500), pKeepAliveIntent);
     }
 
     /**
