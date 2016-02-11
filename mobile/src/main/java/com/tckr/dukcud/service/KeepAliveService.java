@@ -42,7 +42,7 @@ public class KeepAliveService extends Service {
 
         // Stop the service
         Intent serviceIntent = new Intent(this, ScreenService.class);
-        stopService(serviceIntent);
+        //stopService(serviceIntent);
 
         // Call this service again in 10 minutes
         Intent notificationIntent = new Intent(this, KeepAliveReceiver.class);
