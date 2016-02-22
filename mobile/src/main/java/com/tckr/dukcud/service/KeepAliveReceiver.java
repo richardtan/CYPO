@@ -1,14 +1,14 @@
 package com.tckr.dukcud.service;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 
 /**
  * Due to Samsung SPCM this Keep Alive Receiver will stop and restart the service
  */
-public class KeepAliveReceiver extends WakefulBroadcastReceiver {
+public class KeepAliveReceiver extends BroadcastReceiver {
 
     private static final String TAG = "KeepAliveReceiver";
 
@@ -19,6 +19,7 @@ public class KeepAliveReceiver extends WakefulBroadcastReceiver {
         Intent keepAliveService = new Intent(context, KeepAliveService.class);
 
         // Starting wakeful service
-        startWakefulService(context, keepAliveService);
+        context.startService(keepAliveService);
+
     }
 }

@@ -54,13 +54,8 @@ public class OnBootReceiver extends BroadcastReceiver {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC, DateTimeHandler.getNotificationDate().getTimeInMillis(), pendingIntent);
 
-        // Setup Keep Alive Service
-        /*
-        Intent keepAliveIntent = new Intent(context, KeepAliveReceiver.class);
-        PendingIntent pKeepAliveIntent = PendingIntent.getBroadcast(context, 0, keepAliveIntent,0);
-        AlarmManager aKeepAliveManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        aKeepAliveManager.set(AlarmManager.RTC, DateTimeHandler.todayTimestamp() + (1000 * 60 * 10), pKeepAliveIntent);
-        */
+        // Setup Keep Alive Service and repeat after 10 seconds
+        KeepAliveService.startAlarmForKeepAlive(5, context);
 
         Log.v(TAG, "Finish OnBootReceiver");
 

@@ -109,7 +109,7 @@ public class MainActivityOld extends AppCompatActivity {
             dao.open();
             ScreenLogTable[] slt = dao.getScreenLog(50);
 
-            String returnString = "\nDebug Mode\n";
+            String returnString = "\nDebug Mode - Manufacture = " + android.os.Build.MANUFACTURER + "\n";
 
             returnString += "\nTotal number of screen on is: " + dao.getCounterCountOn(DatabaseDAO.COUNTER_DATE_VALUE_DEFAULT);
 

@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.tckr.dukcud.data.DateTimeHandler;
+import com.tckr.dukcud.service.KeepAliveService;
 import com.tckr.dukcud.service.NotificationReceiver;
 import com.tckr.dukcud.service.ScreenService;
 import com.tckr.dukcud.view.GetMenu;
@@ -87,12 +88,7 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC, DateTimeHandler.getNotificationDate().getTimeInMillis(), pendingIntent);
 
-        // Setup Keep Alive Service
-        /*
-        Intent keepAliveIntent = new Intent(MainActivity.this, KeepAliveReceiver.class);
-        PendingIntent pKeepAliveIntent = PendingIntent.getBroadcast(MainActivity.this, 0, keepAliveIntent,0);
-        AlarmManager aKeepAliveManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        aKeepAliveManager.set(AlarmManager.RTC_WAKEUP, DateTimeHandler.todayTimestamp() + (1000 * 60 * 10), pKeepAliveIntent);
-        */
+        // Setup Keep Alive Service and repeat after 5 seconds
+        KeepAliveService.startAlarmForKeepAlive(5, this);
     }
 }
