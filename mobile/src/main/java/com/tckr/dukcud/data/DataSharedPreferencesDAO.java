@@ -28,6 +28,9 @@ public class DataSharedPreferencesDAO {
     public static final String KEY_WELCOME_COMPLETE = "WelcomeComplete";
     public static final String KEY_DEBUG_MODE = "DebugMode";
 
+    // Below is used to keep track of the last time the activity was restarted for keep alive service
+    public static final String KEY_LAST_ACTIVITY_START_SPMC = "LastActivityStartSPMC";
+
     // Create a global variable for the share preference
     private SharedPreferences sharedPreferences;
 

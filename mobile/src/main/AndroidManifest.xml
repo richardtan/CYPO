@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tckr.dukcud" >
+    package="com.tckr.dukcud">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -12,44 +12,40 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.CypoTheme" >
-
+        android:theme="@style/Theme.CypoTheme">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivityOld"
             android:label="@string/debug"
-            android:parentActivityName=".MainActivity" >
-        </activity>
-
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".WearManagementActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity" >
-        </activity>
-
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".AboutActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity" >
-        </activity>
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".KeepAliveActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MainActivity"></activity>
 
         <receiver android:name=".service.ScreenReceiver" />
-
         <receiver android:name=".service.NotificationReceiver" />
-
-        <receiver android:name=".service.OnBootReceiver" >
+        <receiver android:name=".service.OnBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -57,16 +53,12 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".service.KeepAliveReceiver" />
 
         <service android:name=".service.ScreenService" />
-
         <service android:name=".service.NotificationService" />
-
         <service android:name=".service.KeepAliveService" />
-
-        <service android:name=".service.WearService" >
+        <service android:name=".service.WearService">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>

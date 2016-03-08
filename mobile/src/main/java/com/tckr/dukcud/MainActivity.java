@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC, DateTimeHandler.getNotificationDate().getTimeInMillis(), pendingIntent);
 
-        // Setup Keep Alive Service and repeat after 5 seconds
-        KeepAliveService.startAlarmForKeepAlive(5, this);
+        // Setup Keep Alive Service and repeat after 30 seconds
+        KeepAliveService.startAlarmForKeepAlive(30, this);
     }
 }
