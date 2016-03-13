@@ -9,7 +9,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.util.Log;
 
-import com.tckr.dukcud.KeepAliveActivity;
+import com.tckr.dukcud.MainActivity;
 import com.tckr.dukcud.data.DataSharedPreferencesDAO;
 import com.tckr.dukcud.data.DateTimeHandler;
 
@@ -59,10 +59,12 @@ public class KeepAliveService extends Service {
                 if (!powerManager.isInteractive()) {
 
                     // start the KeepAliveActivity
-                    startActivity(new Intent(this, KeepAliveActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                    startActivity(new Intent(this, MainActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            .putExtra("keepAlive", true));
 
-                    // Set the time for for the next time to run 6 hours later
-                    sp.putDataLong(DataSharedPreferencesDAO.KEY_LAST_ACTIVITY_START_SPMC, DateTimeHandler.todayTimestamp() + (1000*60*60*6));
+                    // Set the time for for the next time to run 2 hours later
+                    sp.putDataLong(DataSharedPreferencesDAO.KEY_LAST_ACTIVITY_START_SPMC, DateTimeHandler.todayTimestamp() + (1000*60*60*2));
                     Log.v(TAG, "Finished KeepAliveActivity.class starting and stopping");
                 }
             }
@@ -92,7 +94,7 @@ public class KeepAliveService extends Service {
     public static void startAlarmForKeepAlive(int seconds, Context context) {
 
         // If you are part of a manufacture that needs to have the service kept alive then identify it
-        boolean isKeepAlive = true;
+        boolean isKeepAlive = false;
 
         // Only do the keep alive if you are on Lollipop and later
         if (android.os.Build.VERSION.SDK_INT >= 21) {
@@ -104,7 +106,7 @@ public class KeepAliveService extends Service {
             }
         }
 
-        if (false) {
+        if (isKeepAlive) {
             Intent notificationIntent = new Intent(context, KeepAliveReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, notificationIntent, 0);
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
