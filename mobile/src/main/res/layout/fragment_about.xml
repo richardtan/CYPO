@@ -77,12 +77,39 @@
             android:layout_centerHorizontal="true"
             />
 
+        <Switch
+            android:text="@string/keep_foreground"
+            android:id="@+id/fa_foreground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fa_debug"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:width="@dimen/cypo_about_width"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView android:text="@string/keep_foreground_desc"
+            android:id="@+id/fa_foreground_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/cypo_small_text_size"
+            android:textColor="@color/cypo_black"
+            android:layout_below="@+id/fa_foreground"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:width="@dimen/cypo_about_width"
+            android:layout_centerHorizontal="true"
+            />
+
         <TextView
             android:id="@+id/fa_empty"
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fa_debug"
+            android:layout_below="@+id/fa_foreground_desc"
             />
 
     </RelativeLayout>

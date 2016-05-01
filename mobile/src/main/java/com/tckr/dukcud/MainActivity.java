@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.tckr.dukcud.data.DateTimeHandler;
-import com.tckr.dukcud.service.KeepAliveService;
 import com.tckr.dukcud.service.NotificationReceiver;
 import com.tckr.dukcud.service.ScreenService;
 import com.tckr.dukcud.view.GetMenu;
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         this.startService(screenIntent);
 
         /****
-         * Stat Intent for notification
+         * Start Intent for notification
          ****/
         Intent notificationIntent = new Intent(MainActivity.this, NotificationReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, notificationIntent, 0);
@@ -87,8 +86,5 @@ public class MainActivity extends AppCompatActivity {
         // Set alarms.
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC, DateTimeHandler.getNotificationDate().getTimeInMillis(), pendingIntent);
-
-        // Setup Keep Alive Service and repeat after 30 seconds
-        KeepAliveService.startAlarmForKeepAlive(30, this);
     }
 }

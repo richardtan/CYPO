@@ -29,15 +29,15 @@
         <activity
             android:name=".MainActivityOld"
             android:label="@string/debug"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".WearManagementActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AboutActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
 
         <receiver android:name=".service.ScreenReceiver" />
         <receiver android:name=".service.NotificationReceiver" />
@@ -49,11 +49,9 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".service.KeepAliveReceiver" />
 
         <service android:name=".service.ScreenService" />
         <service android:name=".service.NotificationService" />
-        <service android:name=".service.KeepAliveService" />
         <service android:name=".service.WearService">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />

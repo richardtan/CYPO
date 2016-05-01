@@ -1,14 +1,20 @@
 package com.tckr.dukcud.service;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Build;
 import android.os.IBinder;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 
+import com.tckr.dukcud.MainActivity;
+import com.tckr.dukcud.R;
 import com.tckr.dukcud.data.DataSharedPreferencesDAO;
 import com.tckr.dukcud.data.DatabaseDAO;
 import com.tckr.dukcud.data.DateTimeHandler;
@@ -19,6 +25,8 @@ import com.tckr.dukcud.data.DateTimeHandler;
 public class ScreenService extends Service {
 
     private static final String TAG = "ScreenService";
+    private static final int NOTIFICATION_ID = 1337;
+    private static final String[] MANUFACTURE_FOR_KEEP_ALIVE = {"SAMSUNG"};
 
     // Due to bug in some samsung device, some of the action is called twice. So this static
     // variable is used to stop this. We will update this at the end of the call
@@ -34,6 +42,56 @@ public class ScreenService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    /**
+     * Method used to start the foreground service when the service is called.
+     */
+    private void startTheForegroundService() {
+
+        // Setup new database connection
+        DatabaseDAO dao = new DatabaseDAO(this);
+        dao.open();
+
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+        Notification notification=new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_stat_icon_default)
+                .setContentTitle(getString(R.string.app_name))
+                .setContentText(getString(R.string.notif_foregroud_service, dao.getCounterCountOn(DateTimeHandler.todayDate())))
+                .setContentIntent(pendingIntent)
+                .setPriority(Notification.PRIORITY_MIN).build();
+        startForeground(NOTIFICATION_ID, notification);
+
+        dao.close();
+    }
+
+    /**
+     * Use to find if the foreground service has been enable
+     * @return
+     *      true if it has been set by the user
+     *      true if it has not been set by the user but is part of the Manufacture list.
+     *      false on anything else
+     */
+    public static boolean isForegroundServiceEnable(Context context) {
+
+        DataSharedPreferencesDAO dspDAO = new DataSharedPreferencesDAO(context);
+
+        boolean foregroundOn = dspDAO.getDataBoolean(DataSharedPreferencesDAO.KEY_FOREGROUND_SERVICE);
+        boolean foregroundBeenSet = dspDAO.getDataBoolean(DataSharedPreferencesDAO.KEY_FOREGROUND_SERVICE_SET_ONCE);
+
+        if (foregroundOn) {
+            return true;
+        } else {
+            if (!foregroundBeenSet) {
+                for (String s : MANUFACTURE_FOR_KEEP_ALIVE) {
+                    if(android.os.Build.MANUFACTURER.toUpperCase().equals(s)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -66,9 +124,6 @@ public class ScreenService extends Service {
         Log.v(TAG, "Destroy Service");
         unregisterReceiver(mReceiver);
         super.onDestroy();
-
-        // Setup Keep Alive Service
-        KeepAliveService.startAlarmForKeepAlive(1, this);
     }
 
     /**
@@ -90,6 +145,12 @@ public class ScreenService extends Service {
 
         // Open a SharedPref object
         DataSharedPreferencesDAO sharedPreferencesDAO = new DataSharedPreferencesDAO(this);
+
+        // Set foreground service
+        boolean enableForeground = ScreenService.isForegroundServiceEnable(this);
+        if (enableForeground) {
+            this.startTheForegroundService();
+        }
 
         // Get the intent from the broadcast receiver
         String screenState = null;
@@ -201,6 +262,11 @@ public class ScreenService extends Service {
 
         // Set the new screenState
         lastScreenState = screenState;
+
+        // If foreground not enable then remove the notification
+        if (!enableForeground) {
+            stopForeground(true);
+        }
 
         // Will try to recreate if killed
         return START_STICKY;

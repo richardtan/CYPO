@@ -72,6 +72,7 @@
     <string name="normal_notification_text">That\'s how many times you turned your device on yesterday!</string>
     <string name="sad_notification_title">I feel loney :(</string>
     <string name="sad_notification_text">The device was not turned on yesterday, please use me :(</string>
+    <string name="notif_foregroud_service">%1$s times you have turned on the device today</string>
     <string name="all_time_insight">All Time Insights</string>
     <string name="sot_insight">Most Screen On Time </string>
     <string name="sot_info">\nShows the maximum screen on time on a single charge.</string>
@@ -118,5 +119,13 @@
         <br /><br />
         <strong><em>Click Here to dismiss this message<em></strong>
      ]]></string>
+    <string name="keep_foreground">Keep C.Y.P.O in the foreground?</string>
+    <string name="keep_foreground_desc">
+        On some devices, keeping C.Y.P.O in the foreground will increase the reliability of the app.
+        You also get a nice notification showing you how many times you turn on your device. This will NOT impact battery.
+        By default the following devices will automatically run the app in the foreground to improve reliability
+        \n\n
+        - All Samsung Devices
+    </string>
 
 </resources>
