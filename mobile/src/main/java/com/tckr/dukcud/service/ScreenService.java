@@ -54,7 +54,8 @@ public class ScreenService extends Service {
         dao.open();
 
         Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+        notificationIntent.putExtra("yesterday", false);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification=new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_stat_icon_default)
                 .setContentTitle(getString(R.string.app_name))

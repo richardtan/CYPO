@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.PowerManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +30,6 @@ public class MainActivityFragment extends Fragment {
 
     CypoGridStaggeredView cardGridView;
     boolean intentYesterday = false;
-    boolean keepAlive = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,29 +44,6 @@ public class MainActivityFragment extends Fragment {
 
         // To detect if the screen is on
         PowerManager powerManager = (PowerManager) getActivity().getSystemService(Context.POWER_SERVICE);
-
-        // Below is to see if you came from a keep alive intent. Will be called from KeepAliveService
-        try {
-            keepAlive = getActivity().getIntent().getExtras().getBoolean("keepAlive");
-        } catch (NullPointerException e) {
-            Log.e(TAG, "You are not keep alive: " + e);
-        }
-
-        // Below will be called to close the activity for keep alive. This is to make sure the activity
-        // is in memory and will only be called if the device is known to activity destroy the Service
-        // Only run if you are lollipop or later
-        if (android.os.Build.VERSION.SDK_INT >= 21) {
-            if (keepAlive && !powerManager.isInteractive()) {
-                // Close activity after 1 second.
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        getActivity().finish();
-                    }
-                }, 1000);
-                Log.v(TAG, "Closing the Activity after keep alive");
-            }
-        }
 
     }
 

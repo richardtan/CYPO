@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">C.Y.P.O</string>
-    <string name="hello_round" tools:ignore="TypographyEllipsis">C.Y.P.O is watching...\n\nv1.0.20160124</string>
-    <string name="hello_square" tools:ignore="TypographyEllipsis">C.Y.P.O is watching...\n\nv1.0.20160124</string>
-    <string name="cypo_watching_u" tools:ignore="TypographyEllipsis">C.Y.P.O is watching...\n\nv1.0.20160124</string>
+    <string name="hello_round" tools:ignore="TypographyEllipsis">C.Y.P.O is watching...\n\nv1.1.20160502</string>
+    <string name="hello_square" tools:ignore="TypographyEllipsis">C.Y.P.O is watching...\n\nv1.1.20160502</string>
+    <string name="cypo_watching_u" tools:ignore="TypographyEllipsis">C.Y.P.O is watching...\n\nv1.1.20160502</string>
     <string name="open_on_phone">Open on Phone</string>
     <string name="on">On</string>
     <string name="duration">Duration</string>
