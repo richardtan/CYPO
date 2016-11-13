@@ -1117,7 +1117,7 @@ public class DatabaseDAO {
     public long getCounterCountOnTime(String date) {
 
         Cursor cursor = null;
-        int count = -1;
+        long count = -1;
 
         try {
 
@@ -1137,7 +1137,7 @@ public class DatabaseDAO {
             if(cursor.moveToFirst()) {
 
                 // Store the count attribute for the time
-                count = cursor.getInt(0);
+                count = cursor.getLong(0);
 
                 // If the date is today, then work out since the last screen on time event how long the
                 // device has been on for so we can add it to the count.
@@ -1160,7 +1160,7 @@ public class DatabaseDAO {
                     // and then add it to the count.
                     if(cursor.moveToFirst()) {
                         // Store the count and prepare to return
-                        count += (int) DateTimeHandler.todayTimestamp() - cursor.getInt(0);
+                        count += DateTimeHandler.todayTimestamp() - cursor.getLong(0);
                     }
                 }
             }
@@ -1187,7 +1187,7 @@ public class DatabaseDAO {
     public long getCounterCountOnTimeWear(String date) {
 
         Cursor cursor = null;
-        int count = 0;
+        long count = 0;
 
         try {
 
@@ -1228,7 +1228,7 @@ public class DatabaseDAO {
             // If database entry does exist, store the value, else do nothing
             if (cursor.moveToFirst()) {
                 // Store the count and prepare to return
-                count = cursor.getInt(0);
+                count = cursor.getLong(0);
             }
 
         } catch (Exception e) {
