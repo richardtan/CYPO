@@ -13,14 +13,14 @@ android {
             storePassword props['storePassword']
         }
     }
-    compileSdkVersion 22
+    compileSdkVersion 25
     buildToolsVersion "22.0.1"
     defaultConfig {
         applicationId "com.tckr.dukcud"
         minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 6
-        versionName "1.1.20161112"
+        targetSdkVersion 25
+        versionCode 10007
+        versionName "1.2.20170112"
     }
     buildTypes {
         release {
@@ -40,9 +40,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    wearApp project(':wear')
-    compile 'com.google.android.gms:play-services-wearable:8.1.0'
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    wearApp project(path: ':wear', configuration: 'wear1Release')
+    //wearApp project(path: ':wear', configuration: 'wear1Debug')
+    compile 'com.google.android.gms:play-services-wearable:10.0.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
     //compile 'com.google.android.gms:play-services:8.1.0'
     compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.1'
     compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.0.1'

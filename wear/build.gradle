@@ -13,14 +13,13 @@ android {
             storePassword props['storePassword']
         }
     }
-    compileSdkVersion 22
+    compileSdkVersion 25
     buildToolsVersion "22.0.1"
+    publishNonDefault true
     defaultConfig {
         applicationId "com.tckr.dukcud"
-        minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 6
-        versionName "1.1.20161112"
+        targetSdkVersion 25
+        versionName "1.2.20170112"
     }
     buildTypes {
         release {
@@ -35,13 +34,24 @@ android {
         }
     }
     productFlavors {
+        wear1 {
+            // For package apps
+            minSdkVersion 16
+            versionCode 10007
+        }
+        wear2 {
+            // For standalone apps
+            minSdkVersion 24
+            versionCode 20007
+            versionNameSuffix ".wear2"
+        }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.android.gms:play-services-wearable:8.1.0'
-    compile 'com.android.support:support-v13:22.2.1'
+    compile 'com.google.android.gms:play-services-wearable:10.0.1'
+    compile 'com.android.support:support-v13:25.1.0'
     //compile 'com.google.android.gms:play-services:8.1.0'
-    compile 'com.google.android.support:wearable:1.1.0'
+    compile 'com.google.android.support:wearable:1.4.0'
 }
