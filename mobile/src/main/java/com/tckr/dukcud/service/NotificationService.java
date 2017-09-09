@@ -7,7 +7,9 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.tckr.dukcud.MainActivity;
@@ -17,7 +19,7 @@ import com.tckr.dukcud.data.DatabaseDAO;
 import com.tckr.dukcud.data.DateTimeHandler;
 
 /**
- * Gets fired up when we are lauching a new notification every day around 4AM.
+ * Gets fired up when we are launching a new notification every day around 4AM.
  * Note: On marshmallow it will fire up as soon as the user turn on the phone. This is because of
  * Doze ZzZzZzZzZzZz
  */
@@ -75,15 +77,18 @@ public class NotificationService extends Service {
                     .setSmallIcon(R.drawable.ic_stat_icon_default)
                     .setContentIntent(pendingNotificationIntent);
 
-            // Set the notification
-            Notification notification;
-
             // Set priority to LOW and create a big text for notification
-            // Then BUILD!!!
             nb.setPriority(Notification.PRIORITY_LOW);
             nb.setStyle(new Notification.BigTextStyle()
                     .bigText(notificationText[1]));
-            notification = nb.build();
+
+            // Set visibility to public as it isn't data sensitive plus allows to be dismiss on lock screen API 21 above
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                nb.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+            }
+
+            // Set the notification and build
+            Notification notification = nb.build();
 
             notification.flags |= Notification.FLAG_AUTO_CANCEL;
 

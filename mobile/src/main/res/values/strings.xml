@@ -67,12 +67,12 @@
         On <strong>%1$s</strong> you managed to get <strong>%2$s </strong> of on screen time. That is the most you got from your battery on a single charge!
     ]]></string>
     <string name="notification_all_time_record">It\'s an all time record!!!</string>
-    <string name="notification_all_time_record_text">%1$s times you turned your device on yesterday! That\'s the most since the installation of C.Y.P.O :)</string>
-    <string name="normal_notification_title">%1$s times</string>
+    <string name="notification_all_time_record_text">%1$d times you turned your device on yesterday! That\'s the most since the installation of C.Y.P.O :)</string>
+    <string name="normal_notification_title">%1$d times</string>
     <string name="normal_notification_text">That\'s how many times you turned your device on yesterday!</string>
     <string name="sad_notification_title">I feel loney :(</string>
     <string name="sad_notification_text">The device was not turned on yesterday, please use me :(</string>
-    <string name="notif_foregroud_service">%1$s times you have turned on the device today</string>
+    <string name="notif_foregroud_service">%1$d times you have turned on the device today</string>
     <string name="all_time_insight">All Time Insights</string>
     <string name="sot_insight">Most Screen On Time </string>
     <string name="sot_info">\nShows the maximum screen on time on a single charge.</string>

@@ -56,12 +56,21 @@ public class ScreenService extends Service {
         Intent notificationIntent = new Intent(this, MainActivity.class);
         notificationIntent.putExtra("yesterday", false);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        Notification notification=new NotificationCompat.Builder(this)
+
+        NotificationCompat.Builder nb = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_stat_icon_default)
-                .setContentTitle(getString(R.string.app_name))
-                .setContentText(getString(R.string.notif_foregroud_service, dao.getCounterCountOn(DateTimeHandler.todayDate())))
+                .setContentTitle(getString(R.string.notif_foregroud_service, dao.getCounterCountOn(DateTimeHandler.todayDate())))
                 .setContentIntent(pendingIntent)
-                .setPriority(Notification.PRIORITY_MIN).build();
+                .setPriority(Notification.PRIORITY_MIN);
+
+        // If you are less then Oreo then revert back to old text style
+        if (Build.VERSION.SDK_INT < 26) {
+            nb.setContentTitle(getString(R.string.app_name));
+            nb.setContentText(getString(R.string.notif_foregroud_service, dao.getCounterCountOn(DateTimeHandler.todayDate())));
+        }
+
+        Notification notification = nb.build();
+
         startForeground(NOTIFICATION_ID, notification);
 
         dao.close();
