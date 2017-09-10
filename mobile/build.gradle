@@ -11,6 +11,7 @@ android {
             keyPassword props['keyPassword']
             storeFile file(props['storeFile'])
             storePassword props['storePassword']
+            v2SigningEnabled false
         }
     }
     compileSdkVersion 25

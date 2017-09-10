@@ -119,6 +119,7 @@
         <br /><br />
         <strong><em>Click Here to dismiss this message<em></strong>
      ]]></string>
+    <string name="disable_notification">Disable Notification</string>
     <string name="keep_foreground">Keep C.Y.P.O in the foreground?</string>
     <string name="keep_foreground_desc">
         On some devices, keeping C.Y.P.O in the foreground will increase the reliability of the app.

@@ -29,6 +29,7 @@ public class DataSharedPreferencesDAO {
     public static final String KEY_DEBUG_MODE = "DebugMode";
     public static final String KEY_FOREGROUND_SERVICE = "ForegroundService";
     public static final String KEY_FOREGROUND_SERVICE_SET_ONCE = "ForegroundServiceSet"; // to determine if needs to be set by default
+    public static final String KEY_NOTIFICATION_DISABLE = "NotificationDisable";
 
     // Below is used to keep track of the last time the activity was restarted for keep alive service
     public static final String KEY_LAST_ACTIVITY_START_SPMC = "LastActivityStartSPMC";

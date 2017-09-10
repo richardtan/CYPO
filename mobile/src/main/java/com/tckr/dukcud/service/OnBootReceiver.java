@@ -1,14 +1,11 @@
 package com.tckr.dukcud.service;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
 import com.tckr.dukcud.data.DataSharedPreferencesDAO;
-import com.tckr.dukcud.data.DateTimeHandler;
 
 /**
  * Used to start the application if the device has been rebooted or if the application was updated.
@@ -49,10 +46,7 @@ public class OnBootReceiver extends BroadcastReceiver {
         context.startService(startServiceIntent);
 
         // Start notification receiver.
-        Intent notificationIntent = new Intent(context, NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, notificationIntent,0);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC, DateTimeHandler.getNotificationDate().getTimeInMillis(), pendingIntent);
+        NotificationService.restartNotification(context);
 
         Log.v(TAG, "Finish OnBootReceiver");
 

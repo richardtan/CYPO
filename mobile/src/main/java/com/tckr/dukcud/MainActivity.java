@@ -1,15 +1,12 @@
 package com.tckr.dukcud;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.tckr.dukcud.data.DateTimeHandler;
-import com.tckr.dukcud.service.NotificationReceiver;
+import com.tckr.dukcud.service.NotificationService;
 import com.tckr.dukcud.service.ScreenService;
 import com.tckr.dukcud.view.GetMenu;
 
@@ -77,14 +74,8 @@ public class MainActivity extends AppCompatActivity {
         Intent screenIntent = new Intent(this, ScreenService.class);
         this.startService(screenIntent);
 
-        /****
-         * Start Intent for notification
-         ****/
-        Intent notificationIntent = new Intent(MainActivity.this, NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, notificationIntent, 0);
-
-        // Set alarms.
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC, DateTimeHandler.getNotificationDate().getTimeInMillis(), pendingIntent);
+        // Create Notification
+        NotificationService.restartNotification(this);
+        
     }
 }
