@@ -59,13 +59,13 @@ public class NotificationService extends Service {
         dao.close();
 
         // User might have disable the notification. If so get stop the notification.
-        // true = show notification
-        // false = do not show notification
+        // true = do not show notification
+        // false = show notification
         boolean disableNotification = new DataSharedPreferencesDAO(this)
                 .getDataBoolean(DataSharedPreferencesDAO.KEY_NOTIFICATION_DISABLE);
 
-        // If the notification text is null, then don't show an notification
-        if (notificationText != null || !disableNotification) {
+        // If the notification text is null and user has disable notification then don't show an notification
+        if (notificationText != null && !disableNotification) {
 
             // Create the Intent and then the pending intent for the notification so we have
             // somewhere to go once the user clicks on the notification
