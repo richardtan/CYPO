@@ -20,7 +20,7 @@ android {
         applicationId "com.tckr.dukcud"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 10007
+        versionCode 10008
         versionName "1.2.20170112"
     }
     buildTypes {

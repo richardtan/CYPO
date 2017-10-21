@@ -15,7 +15,7 @@ android {
         }
     }
     compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '25.0.3'
     publishNonDefault true
     defaultConfig {
         applicationId "com.tckr.dukcud"
@@ -38,12 +38,12 @@ android {
         wear1 {
             // For package apps
             minSdkVersion 16
-            versionCode 10007
+            versionCode 10008
         }
         wear2 {
             // For standalone apps
             minSdkVersion 24
-            versionCode 20007
+            versionCode 20008
             versionNameSuffix ".wear2"
         }
     }

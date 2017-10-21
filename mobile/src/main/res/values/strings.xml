@@ -98,7 +98,7 @@
     <string name="manage_wear_devices_msg">C.Y.P.O can only support one Android Wear device at a time. If you have more than one Android Wear device, please select the one you would like to use with this application.</string>
     <string name="manage_wear_devices_footer">Note: This does not affect the application running on Android Wear. This is a limitation currently with the Phone/Tablet applications.</string>
     <string name="about_msg"><![CDATA[
-        Version: 1.2.20170112<br /><br />
+        Version: 1.3.20171021<br /><br />
         Developer: Richard Tan<br /><br />
         Website: <a href="https://justexperiment.com/cypo.php">Just Experiment - CYPO</a><br /><br />
         Donate: <a href="https://www.paypal.me/RichardTan/">PayPal.me/RichardTan</a><br /><br />
